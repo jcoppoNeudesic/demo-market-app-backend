@@ -7,7 +7,7 @@ const marketItemService = new MarketItemService();
 const createNewItem = async (req: Request, res: Response) => {
   const newItem = req.body;
   try {
-    await marketItemService.create(newItem);
+    await marketItemService.createItem(newItem);
     res.send('Success: item posted');
   } catch (error) {
     const { name, message } = error as Error;

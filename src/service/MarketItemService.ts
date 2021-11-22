@@ -6,13 +6,13 @@ import { db } from '../loaders/firebase';
 export default class MarketItemService {
   private dbName = 'market';
 
-  create = async (item: any) => {
+  createItem = async (item: any) => {
     const marketItem: MarketItem = {
       ownerUsername: item.ownerUsername,
       name: item.name,
       price: item.price,
-      description: item.description,
-      imageUrl: item.imageUrl,
+      description: item.description || '',
+      imageUrl: item.imageUrl || '',
       location: item.location,
       timeCreated: moment().format(),
       expireTime: moment().add(10, 'days').format(),
